@@ -1,3 +1,4 @@
+
 <form method="POST" action="/appointments/{{ $appointment->id }}">
     @csrf
     @method('PUT')
@@ -9,4 +10,3 @@
     </select>
 
     <button type="submit">تحديث</button>
-</form>

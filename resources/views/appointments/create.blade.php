@@ -1,3 +1,4 @@
+
 <form action="{{ route('appointments.store') }}" method="POST">
     @csrf
 
@@ -14,4 +15,5 @@
     </select>
 
     <button type="submit">حفظ</button>
+
 </form>

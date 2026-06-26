@@ -1,3 +1,4 @@
+
 <h2>تفاصيل الحجز</h2>
 
 <div style="border:1px solid #ccc; padding:15px; width:300px;">
@@ -22,4 +23,3 @@
 
 <br>
 
-<a href="/appointments">⬅ رجوع</a>

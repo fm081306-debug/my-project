@@ -1,3 +1,4 @@
+
 <table>
     <tr>
         <th>العميل</th>
@@ -16,4 +17,3 @@
         <td>{{ $appointment->status }}</td>
     </tr>
     @endforeach
-</table>

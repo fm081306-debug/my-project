@@ -1,3 +1,4 @@
+
 <h1>إضافة عميل</h1>
 
 <form action="/clients" method="POST">
@@ -7,4 +8,3 @@
     <input type="text" name="phone" placeholder="الهاتف">
 
     <button type="submit">حفظ</button>
-</form>

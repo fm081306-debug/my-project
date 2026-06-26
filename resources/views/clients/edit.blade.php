@@ -1,3 +1,4 @@
+
 <h1>تعديل التصنيف</h1>
 
 <form action="/categories/{{ $category->id }}" method="POST">
@@ -8,4 +9,3 @@
     <input type="text" name="description" value="{{ $category->description }}">
 
     <button type="submit">تحديث</button>
-</form>

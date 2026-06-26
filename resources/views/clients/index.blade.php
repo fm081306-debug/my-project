@@ -1,3 +1,4 @@
+
 <h1>قائمة العملاء</h1>
 
 <a href="/clients/create">إضافة عميل جديد</a>
@@ -15,4 +16,3 @@
         </tr>
     @endforeach
 
-</table>
