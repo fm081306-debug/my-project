@@ -4,16 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ServiceCtroller extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-    }
-
+  public function index()
+{
+    $services = Service::all();
+    return view('services.index', compact('services'));
+}
     /**
      * Show the form for creating a new resource.
      */
@@ -27,7 +27,9 @@ class ServiceCtroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+    'name' => 'required',
+]);
     }
 
     /**
@@ -51,7 +53,9 @@ class ServiceCtroller extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+    'name' => 'required',
+]);
     }
 
     /**

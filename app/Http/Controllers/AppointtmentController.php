@@ -67,35 +67,38 @@ class AppointmentController extends Controller
 
         return view('appointments.edit', compact('appointment', 'clients', 'services', 'types'));
     }
-public function update(Request $request, $id)
-{
-    $request->validate([
-        'client_id' => 'required|exists:clients,id',
-        'service_id' => 'required|exists:services,id',
-        'level_app_id' => 'required|exists:level_apps,id',
-        'date' => 'required|date',
-        'time' => 'required',
-        'status' => 'required',
-    ]);
 
-    $appointment = Appointment::findOrFail($id);
+    // تحديث
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'client_id' => 'required|exists:clients,id',
+            'service_id' => 'required|exists:services,id',
+            'level_app_id' => 'required|exists:level_apps,id',
+            'date' => 'required|date',
+            'time' => 'required',
+            'status' => 'required',
+        ]);
 
-    $appointment->update([
-        'client_id' => $request->client_id,
-        'service_id' => $request->service_id,
-        'level_app_id' => $request->level_app_id,
-        'date' => $request->date,
-        'time' => $request->time,
-        'status' => $request->status,
-    ]);
+        $appointment = Appointment::findOrFail($id);
 
-    return redirect('/appointments')->with('success', 'تم التحديث');
-}
+        $appointment->update([
+            'client_id' => $request->client_id,
+            'service_id' => $request->service_id,
+            'level_app_id' => $request->level_app_id,
+            'date' => $request->date,
+            'time' => $request->time,
+            'status' => $request->status,
+        ]);
+
+        return redirect('/appointments')->with('success', 'تم التحديث بنجاح');
+    }
 
     // حذف
     public function destroy($id)
     {
         Appointment::destroy($id);
-        return redirect('/appointments')->with('success', 'تم الحذف');
+
+        return redirect('/appointments')->with('success', 'تم الحذف بنجاح');
     }
 }

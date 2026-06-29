@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 
 class RequstController extends Controller
 {
-    public function index()
+public function index()
 {
-    return "قائمة الطلبات (Admin)";
+    $requests = Request::all();
+    return view('requests.index', compact('requests'));
 }
 }

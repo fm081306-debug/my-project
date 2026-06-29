@@ -3,19 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Client;
 
 class ClientController extends Controller
 {
-   use App\Models\Client;
-use Illuminate\Http\Request;
+    // عرض العملاء
+    public function index()
+    {
+        $clients = Client::all();
+        return view('clients.index', compact('clients'));
+    }
 
-public function store(Request $request)
-{
-    Client::create([
-        'name' => $request->name,
-        'phone' => $request->phone,
-    ]);
+    // إضافة عميل
+    public function store(Request $request)
+    {
+        Client::create([
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'address' => $request->address,
+        ]);
 
-    return "تم إضافة عميل";
-}
+        return redirect('/clients')->with('success', 'تمت الإضافة بنجاح');
+    }
 }

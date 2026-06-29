@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 class CountryController extends Controller
+{public function index()
 {
-    public function index()
-{
-    return "قائمة الدول";
+    $countries = Country::all();
+    return view('countries.index', compact('countries'));
 }
+    
 }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CountrryController extends Controller
+class CountryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -12,6 +12,7 @@ class CountrryController extends Controller
     public function index()
     {
         //
+
     }
 
     /**

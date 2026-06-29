@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use Illuminate\Http\Request;
 
-class ClientController extends Controller
+class ClienttController extends Controller
 {
     // عرض كل العملاء
     public function index()

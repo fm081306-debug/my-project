@@ -1,4 +1,3 @@
-
 <h1>قائمة العملاء</h1>
 
 <a href="/clients/create">إضافة عميل جديد</a>
@@ -15,4 +14,4 @@
             <td>{{ $client->phone }}</td>
         </tr>
     @endforeach
-
+</table>    

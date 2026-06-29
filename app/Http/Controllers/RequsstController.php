@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Request as RequestModel;
 
-class RequsstController extends Controller
+class RequestController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $requests = RequestModel::with(['client', 'service'])->get();
+        return view('requests.index', compact('requests'));
     }
 
     /**
@@ -19,7 +21,7 @@ class RequsstController extends Controller
      */
     public function create()
     {
-        //
+        return view('requests.create');
     }
 
     /**
@@ -27,7 +29,13 @@ class RequsstController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        RequestModel::create([
+            'client_id' => $request->client_id,
+            'service_id' => $request->service_id,
+            'status' => $request->status ?? 'pending',
+        ]);
+
+        return redirect('/requests')->with('success', 'تم إضافة الطلب');
     }
 
     /**
@@ -35,7 +43,8 @@ class RequsstController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $requestItem = RequestModel::findOrFail($id);
+        return view('requests.show', compact('requestItem'));
     }
 
     /**
@@ -43,7 +52,8 @@ class RequsstController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $requestItem = RequestModel::findOrFail($id);
+        return view('requests.edit', compact('requestItem'));
     }
 
     /**
@@ -51,7 +61,15 @@ class RequsstController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $requestItem = RequestModel::findOrFail($id);
+
+        $requestItem->update([
+            'client_id' => $request->client_id,
+            'service_id' => $request->service_id,
+            'status' => $request->status,
+        ]);
+
+        return redirect('/requests')->with('success', 'تم التحديث');
     }
 
     /**
@@ -59,6 +77,8 @@ class RequsstController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        RequestModel::destroy($id);
+
+        return redirect('/requests')->with('success', 'تم الحذف');
     }
 }
